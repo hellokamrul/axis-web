@@ -23,17 +23,21 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       {/* nav */}
-       <NavBar></NavBar>
-        <main className="h-screen max-h-200  place-items-center place-content-center">
-          {/* just like outlete */}
-          {children}
-        </main>
+        {/* Full page max-width container */}
+        <div className="max-w-[1920px] mx-auto bg-[#111]">
+          {/* Navbar - transparent, shows body bg */}
+          <NavBar />
+          
+          {/* Main content - individual sections have their own bg */}
+          <main className="min-h-screen">
+            {children}
+          </main>
 
-        {/* ekhane render hoy route gula */}
-        <footer className="text-center bg-slate-600">
-          Awsome next js project
-        </footer>
+          {/* Footer - has its own bg */}
+          <footer className="text-center bg-slate-600 py-4 text-white">
+            Awesome Next.js Project
+          </footer>
+        </div>
       </body>
     </html>
   );

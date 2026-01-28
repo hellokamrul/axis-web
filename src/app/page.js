@@ -1,9 +1,12 @@
-import Image from "next/image";
+import About_Outcome from "./components/About&Outcome/About_Outcome";
+import Banner from "./components/Home/Banner/Banner";
 
+// Home Page - shudhu home page er content
 export default function Home() {
   return (
-    <div className="">
-     <h1>Hello world</h1>
+    <div>
+      <Banner />
+      <About_Outcome></About_Outcome>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import Footer from "./components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,21 +25,21 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Full page max-width container */}
-        <div className="max-w-[1920px] mx-auto bg-[#111]">
-          {/* Navbar - transparent, shows body bg */}
-          <NavBar />
-          
-          {/* Main content - individual sections have their own bg */}
-          <main className="min-h-screen">
-            {children}
-          </main>
+        <SmoothScrollProvider>
+          {/* Full page max-width container */}
+          <div className="max-w-[1920px] mx-auto bg-[#111]">
+            {/* Navbar - transparent, shows body bg */}
+            <NavBar />
+            
+            {/* Main content - individual sections have their own bg */}
+            <main className="min-h-screen">
+              {children}
+            </main>
 
-          {/* Footer - has its own bg */}
-          <footer className="text-center bg-slate-600 py-4 text-white">
-            Awesome Next.js Project
-          </footer>
-        </div>
+            {/* Footer - has its own bg */}
+            <Footer></Footer>
+          </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
